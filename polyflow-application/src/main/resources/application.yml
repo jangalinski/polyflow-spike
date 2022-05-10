@@ -1,0 +1,24 @@
+server:
+  port: 10000
+
+spring:
+  application:
+    name: polyflow-application
+
+springdoc:
+  swagger-ui:
+    use-root-path: true
+
+polyflow:
+  integration:
+    collector:
+      camunda:
+        application-name: ${spring.application.name}  # default
+        process-instance:
+          enabled: false
+        process-definition:
+          enabled: false
+        task:
+          enabled: true
+          enricher:
+            type: processVariables

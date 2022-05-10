@@ -12,7 +12,10 @@
   <artifactId>business-application</artifactId>
 
   <dependencies>
-
+    <dependency>
+      <groupId>io.holunda.polyflow</groupId>
+      <artifactId>polyflow-datapool-sender</artifactId>
+    </dependency>
   </dependencies>
 
 </project>

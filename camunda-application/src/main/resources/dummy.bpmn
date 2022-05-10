@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<bpmn:definitions xmlns:bpmn="http://www.omg.org/spec/BPMN/20100524/MODEL" xmlns:bpmndi="http://www.omg.org/spec/BPMN/20100524/DI" xmlns:dc="http://www.omg.org/spec/DD/20100524/DC" xmlns:di="http://www.omg.org/spec/DD/20100524/DI" xmlns:modeler="http://camunda.org/schema/modeler/1.0" id="Definitions_1fnpsxh" targetNamespace="http://bpmn.io/schema/bpmn" exporter="Camunda Modeler" exporterVersion="5.0.0" modeler:executionPlatform="Camunda Platform" modeler:executionPlatformVersion="7.17.0">
-  <bpmn:process id="Process_10y4gxf" isExecutable="true">
+<bpmn:definitions xmlns:bpmn="http://www.omg.org/spec/BPMN/20100524/MODEL" xmlns:bpmndi="http://www.omg.org/spec/BPMN/20100524/DI" xmlns:dc="http://www.omg.org/spec/DD/20100524/DC" xmlns:camunda="http://camunda.org/schema/1.0/bpmn" xmlns:di="http://www.omg.org/spec/DD/20100524/DI" xmlns:modeler="http://camunda.org/schema/modeler/1.0" id="Definitions_1fnpsxh" targetNamespace="http://bpmn.io/schema/bpmn" exporter="Camunda Modeler" exporterVersion="5.0.0" modeler:executionPlatform="Camunda Platform" modeler:executionPlatformVersion="7.17.0">
+  <bpmn:process id="process_dummy" name="Dummy Process" isExecutable="true" camunda:versionTag="1">
     <bpmn:startEvent id="StartEvent_1">
       <bpmn:outgoing>Flow_1w1i6ck</bpmn:outgoing>
     </bpmn:startEvent>
@@ -9,13 +9,14 @@
       <bpmn:incoming>Flow_0skqcs4</bpmn:incoming>
     </bpmn:endEvent>
     <bpmn:sequenceFlow id="Flow_0skqcs4" sourceRef="task_do_stuff" targetRef="Event_08blhhd" />
-    <bpmn:userTask id="task_do_stuff" name="Do stuff">
+    <bpmn:userTask id="task_do_stuff" name="Do stuff" camunda:candidateUsers="kermit">
+      <bpmn:documentation>Just do it</bpmn:documentation>
       <bpmn:incoming>Flow_1w1i6ck</bpmn:incoming>
       <bpmn:outgoing>Flow_0skqcs4</bpmn:outgoing>
     </bpmn:userTask>
   </bpmn:process>
   <bpmndi:BPMNDiagram id="BPMNDiagram_1">
-    <bpmndi:BPMNPlane id="BPMNPlane_1" bpmnElement="Process_10y4gxf">
+    <bpmndi:BPMNPlane id="BPMNPlane_1" bpmnElement="process_dummy">
       <bpmndi:BPMNEdge id="Flow_1w1i6ck_di" bpmnElement="Flow_1w1i6ck">
         <di:waypoint x="188" y="120" />
         <di:waypoint x="240" y="120" />

@@ -1,10 +1,12 @@
 server:
-  port: 10000
+  port: 20000
 
 spring:
   application:
     name: polyflow-application
-
+  jackson:
+    deserialization:
+      read-date-timestamps-as-nanoseconds: true
 springdoc:
   swagger-ui:
     use-root-path: true

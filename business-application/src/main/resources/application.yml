@@ -1,6 +1,20 @@
 server:
-  port: 10001
+  port: 20002
 
 spring:
   application:
-    name: polyflow-server
+    name: business-application
+
+
+springdoc:
+  swagger-ui:
+    use-root-path: true
+
+polyflow:
+  integration:
+    sender:
+      enabled: true
+      data-entry:
+        enabled: true
+        type: simple
+        application-name: ${spring.application.name}  # default

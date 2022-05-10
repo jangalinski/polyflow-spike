@@ -16,6 +16,14 @@
       <groupId>io.holunda.polyflow</groupId>
       <artifactId>polyflow-taskpool-core</artifactId>
     </dependency>
+    <dependency>
+      <groupId>io.holunda.polyflow</groupId>
+      <artifactId>polyflow-datapool-core</artifactId>
+    </dependency>
+    <dependency>
+      <groupId>io.holunda.polyflow</groupId>
+      <artifactId>polyflow-view-simple</artifactId>
+    </dependency>
   </dependencies>
 
 </project>

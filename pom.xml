@@ -17,8 +17,11 @@
 
   <modules>
 
-    <!-- here is the process -->
+    <!-- here is the process with user tasks -->
     <module>camunda-application</module>
+
+    <!-- here is the data -->
+    <module>business-application</module>
 
     <!-- global tasklist, combining tasks and data -->
     <module>polyflow-application</module>
@@ -29,7 +32,7 @@
     <java.version>17</java.version>
     <kotlin.version>1.6.21</kotlin.version>
 
-    <camunda.version>7.16.0</camunda.version>
+    <camunda.version>7.17.0</camunda.version>
     <polyflow.version>3.2.0</polyflow.version>
   </properties>
 
@@ -68,6 +71,11 @@
     <dependency>
       <groupId>org.jetbrains.kotlin</groupId>
       <artifactId>kotlin-stdlib-jdk8</artifactId>
+    </dependency>
+    <dependency>
+      <groupId>io.github.microutils</groupId>
+      <artifactId>kotlin-logging-jvm</artifactId>
+      <version>2.1.21</version>
     </dependency>
 
     <!-- all apps are spring boot web apps -->

@@ -1,8 +1,10 @@
-package io.github.jangalinski.server
+package io.github.jangalinski.camunda
 
 import com.thoughtworks.xstream.XStream
 import com.thoughtworks.xstream.security.AnyTypePermission
+import io.github.jangalinski.camunda.process.taskDoStuffVariablesCorrelator
 import io.holunda.polyflow.taskpool.EnableTaskpoolEngineSupport
+import io.holunda.polyflow.taskpool.collector.task.enricher.ProcessVariablesCorrelator
 import io.swagger.v3.oas.annotations.OpenAPIDefinition
 import io.swagger.v3.oas.annotations.info.Info
 import org.axonframework.serialization.xml.CompactDriver
@@ -33,4 +35,6 @@ class CamundaApplication {
     addPermission(AnyTypePermission.ANY)
   }
 
+  @Bean
+  fun polyflowCorrelations() : ProcessVariablesCorrelator = ProcessVariablesCorrelator(taskDoStuffVariablesCorrelator)
 }

@@ -1,6 +1,6 @@
 # polyflow-spike
 
-getting it to work - hopefully
+This example project contains 3 applications. One keeps business objects and publishes changes as dataEntries to polyflow, one starts processes with a single "do it" user task and the third one collects and correlates dataEntries and userTasks for an aggregated task list.
 
 ## Running it
 

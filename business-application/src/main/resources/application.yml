@@ -17,3 +17,9 @@ polyflow:
       data-entry:
         enabled: true
         type: simple
+
+axon:
+  serializer:
+    general: JACKSON
+    messages: JACKSON
+    events: JACKSON

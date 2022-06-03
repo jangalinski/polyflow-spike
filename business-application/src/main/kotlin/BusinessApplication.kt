@@ -1,11 +1,16 @@
 package io.github.jangalinski.business
 
+import com.fasterxml.jackson.databind.SerializationFeature
+import com.fasterxml.jackson.datatype.jdk8.Jdk8Module
+import com.fasterxml.jackson.datatype.jsr310.JavaTimeModule
+import com.fasterxml.jackson.module.kotlin.jacksonObjectMapper
 import com.thoughtworks.xstream.XStream
 import com.thoughtworks.xstream.security.AnyTypePermission
 import io.github.jangalinski.business.model.MyBusinessObject
 import io.holunda.camunda.taskpool.api.business.AuthorizationChange
 import io.holunda.camunda.taskpool.api.business.Modification
 import io.holunda.camunda.taskpool.api.business.ProcessingType
+import io.holunda.polyflow.bus.jackson.configurePolyflowJacksonObjectMapper
 import io.holunda.polyflow.datapool.EnableDataEntrySender
 import io.holunda.polyflow.datapool.sender.DataEntryCommandSender
 import io.swagger.v3.oas.annotations.OpenAPIDefinition
@@ -18,6 +23,7 @@ import org.springframework.boot.autoconfigure.condition.ConditionalOnMissingBean
 import org.springframework.boot.runApplication
 import org.springframework.context.ApplicationContext
 import org.springframework.context.annotation.Bean
+import org.springframework.context.annotation.Primary
 import org.springframework.web.bind.annotation.*
 import java.time.OffsetDateTime
 import java.util.*
@@ -39,6 +45,15 @@ class BusinessApplication {
     allowTypesByWildcard(XStreamSecurityTypeUtility.autoConfigBasePackages(applicationContext))
     addPermission(AnyTypePermission.ANY)
   }
+
+  @Primary
+  @Bean("defaultJacksonObjectMapper")
+  fun defaultJacksonObjectMapper() = jacksonObjectMapper().apply {
+    registerModule(Jdk8Module())
+    registerModule(JavaTimeModule())
+    disable(SerializationFeature.WRITE_DATES_AS_TIMESTAMPS)
+  }.configurePolyflowJacksonObjectMapper()
+
 }
 
 @RestController

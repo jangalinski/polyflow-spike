@@ -11,6 +11,8 @@ springdoc:
   swagger-ui:
     use-root-path: true
 
+
+
 polyflow:
   integration:
     collector:
@@ -23,3 +25,8 @@ polyflow:
           enabled: true
           enricher:
             type: processVariables
+axon:
+  serializer:
+    general: JACKSON
+    messages: JACKSON
+    events: JACKSON

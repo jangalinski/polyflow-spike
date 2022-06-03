@@ -46,3 +46,9 @@ polyflow:
       task:
         enabled: true
         type: tx
+
+axon:
+  serializer:
+    general: JACKSON
+    messages: JACKSON
+    events: JACKSON

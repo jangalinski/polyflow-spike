@@ -1,7 +1,7 @@
 package io.github.jangalinski.polyflow
 
-import io.github.jangalinski.polyflow.axon.PolyFlowQueryExt.taskForApplication
-import io.github.jangalinski.polyflow.axon.PolyFlowQueryExt.tasksWithDataEntriesForUser
+import io.holunda.polyflow.view.QueryGatewayExt.tasksForApplication
+import io.holunda.polyflow.view.QueryGatewayExt.tasksWithDataEntriesForUser
 import io.holunda.polyflow.view.auth.User
 import io.holunda.polyflow.view.query.task.TaskQueryResult
 import io.holunda.polyflow.view.query.task.TasksForApplicationQuery
@@ -28,7 +28,7 @@ class TaskController(
       applicationName = CAMUNDA_APP_NAME
     )
 
-    return queryGateway.taskForApplication(query).join()
+    return queryGateway.tasksForApplication(query).join()
   }
 
   @GetMapping("/user/{userId}")

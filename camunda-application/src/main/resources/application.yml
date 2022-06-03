@@ -21,12 +21,12 @@ camunda:
       properties:
         initializeTelemetry: false
         telemetryReporterActivate: false
+    default-serialization-format: application/json
 
 polyflow:
   integration:
     collector:
       camunda:
-        application-name: ${spring.application.name}  # default
         process-instance:
           enabled: false
         process-definition:
@@ -39,7 +39,6 @@ polyflow:
       enabled: true
       data-entry:
         enabled: false
-        application-name: ${spring.application.name}  # default
       process-definition:
         enabled: false
       process-instance:

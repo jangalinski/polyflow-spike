@@ -17,4 +17,3 @@ polyflow:
       data-entry:
         enabled: true
         type: simple
-        application-name: ${spring.application.name}  # default

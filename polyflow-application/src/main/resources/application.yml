@@ -15,7 +15,6 @@ polyflow:
   integration:
     collector:
       camunda:
-        application-name: ${spring.application.name}  # default
         process-instance:
           enabled: false
         process-definition:

@@ -12,7 +12,7 @@ getting it to work - hopefully
   - [CamundaApplication](./camunda-application/src/main/kotlin/CamundaApplication.kt) - running processes with user tasks
     - [cockpit](http://localhost:20001/camunda/app/cockpit/default/#/dashboard)
     - [swagger](http://localhost:20001/swagger-ui/index.html)
-  - [BusinessApplication](./business-application/src/main/kotlin/BusinessApplication.kt)
+  - [BusinessApplication](./business-application/src/main/kotlin/BusinessApplication.kt) - publishing data entry changes that should be correlated with tasks
     - [swagger](http://localhost:20002/)
 
 

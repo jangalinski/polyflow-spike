@@ -1,6 +1,7 @@
 package io.github.jangalinski.polyflow
 
-import io.github.jangalinski.polyflow.axon.PolyFlowQueryExt.dataEntries
+import io.holixon.axon.gateway.query.QueryResponseMessageResponseType
+import io.holunda.polyflow.view.QueryGatewayExt.dataEntries
 import io.holunda.polyflow.view.query.data.DataEntriesQuery
 import io.holunda.polyflow.view.query.data.DataEntriesQueryResult
 import org.axonframework.messaging.responsetypes.ResponseTypes
@@ -17,7 +18,7 @@ class DataEntryController(
 
   @GetMapping
   fun findAll(): DataEntriesQueryResult {
-    return queryGateway.dataEntries(DataEntriesQuery()).join()
+    return queryGateway.query(DataEntriesQuery(), QueryResponseMessageResponseType.queryResponseMessageResponseType<DataEntriesQueryResult>()).join()
   }
 
 }

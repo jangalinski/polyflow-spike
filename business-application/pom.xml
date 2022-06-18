@@ -16,6 +16,11 @@
       <groupId>io.holunda.polyflow</groupId>
       <artifactId>polyflow-datapool-sender</artifactId>
     </dependency>
+
+    <dependency>
+      <groupId>io.github.jangalinski</groupId>
+      <artifactId>polyflow-lib-jackson</artifactId>
+    </dependency>
   </dependencies>
 
 </project>

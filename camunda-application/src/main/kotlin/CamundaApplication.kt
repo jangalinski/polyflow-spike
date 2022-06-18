@@ -7,6 +7,7 @@ import com.fasterxml.jackson.module.kotlin.jacksonObjectMapper
 import com.thoughtworks.xstream.XStream
 import com.thoughtworks.xstream.security.AnyTypePermission
 import io.github.jangalinski.camunda.process.taskDoStuffVariablesCorrelator
+import io.github.jangalinski.lib.jackson.JacksonExt
 import io.holunda.polyflow.bus.jackson.configurePolyflowJacksonObjectMapper
 import io.holunda.polyflow.taskpool.EnableTaskpoolEngineSupport
 import io.holunda.polyflow.taskpool.collector.task.enricher.ProcessVariablesCorrelator
@@ -33,22 +34,9 @@ fun main(args: Array<String>) = runApplication<CamundaApplication>().let { }
 @OpenAPIDefinition(info = Info(title = "Camunda Application", description = "running processes with tasks", version = "1"))
 class CamundaApplication {
 
-  @Bean("defaultAxonXStream")
-  @ConditionalOnMissingBean
-  fun defaultAxonXStream(applicationContext: ApplicationContext): XStream = XStream(CompactDriver()).apply {
-    // just ignore xstream security
-    allowTypesByWildcard(XStreamSecurityTypeUtility.autoConfigBasePackages(applicationContext))
-    addPermission(AnyTypePermission.ANY)
-  }
-
-
   @Primary
   @Bean("defaultJacksonObjectMapper")
-  fun defaultJacksonObjectMapper() = jacksonObjectMapper().apply {
-    registerModule(Jdk8Module())
-    registerModule(JavaTimeModule())
-    disable(SerializationFeature.WRITE_DATES_AS_TIMESTAMPS)
-  }.configurePolyflowJacksonObjectMapper()
+  fun defaultJacksonObjectMapper() = JacksonExt.defaultJacksonObjectMapper()
 
   @Bean
   fun polyflowCorrelations() : ProcessVariablesCorrelator = ProcessVariablesCorrelator(taskDoStuffVariablesCorrelator)

@@ -12,6 +12,8 @@
 
   <modules>
 
+    <module>lib/jackson</module>
+
     <!-- here is the process with user tasks -->
     <module>camunda-application</module>
 
@@ -77,6 +79,12 @@
         <version>${polyflow.version}</version>
         <type>pom</type>
         <scope>import</scope>
+      </dependency>
+
+      <dependency>
+        <groupId>io.github.jangalinski</groupId>
+        <artifactId>polyflow-lib-jackson</artifactId>
+        <version>${project.version}</version>
       </dependency>
     </dependencies>
   </dependencyManagement>

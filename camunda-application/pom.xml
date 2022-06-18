@@ -49,8 +49,8 @@
     </dependency>
 
     <dependency>
-      <groupId>com.fasterxml.jackson.module</groupId>
-      <artifactId>jackson-module-kotlin</artifactId>
+      <groupId>io.github.jangalinski</groupId>
+      <artifactId>polyflow-lib-jackson</artifactId>
     </dependency>
 
     <dependency>
